@@ -1,0 +1,9 @@
+Flask==0.12.2
+cf-deployment-tracker==1.0.4
+gunicorn
+pytz
+pytest
+git+https://github.com/ericsomdahl/python-bittrex.git
+gemini-python-unoffc
+watson_developer_cloud
+coinbase

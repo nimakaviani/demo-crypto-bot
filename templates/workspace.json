@@ -1,0 +1,228 @@
+{
+  "name": "crypto-bot",
+  "created": "2017-12-12T02:06:23.279Z",
+  "intents": [
+    {
+      "intent": "balance",
+      "created": "2017-12-12T02:06:35.531Z",
+      "updated": "2017-12-15T05:29:35.952Z",
+      "examples": [
+        {
+          "text": "what is my balance",
+          "created": "2017-12-12T02:06:41.417Z",
+          "updated": "2017-12-12T02:06:41.417Z"
+        },
+        {
+          "text": "show me balance",
+          "created": "2017-12-12T02:06:49.162Z",
+          "updated": "2017-12-12T02:06:49.162Z"
+        },
+        {
+          "text": "get my balance",
+          "created": "2017-12-12T02:06:51.948Z",
+          "updated": "2017-12-12T02:06:51.948Z"
+        },
+        {
+          "text": "balance",
+          "created": "2017-12-12T02:06:54.142Z",
+          "updated": "2017-12-12T02:06:54.142Z"
+        },
+        {
+          "text": "how much money do I have",
+          "created": "2017-12-12T02:07:05.997Z",
+          "updated": "2017-12-12T02:07:05.997Z"
+        },
+        {
+          "text": "show me my balance",
+          "created": "2017-12-12T02:07:17.570Z",
+          "updated": "2017-12-12T02:07:17.570Z"
+        },
+        {
+          "text": "latest balance",
+          "created": "2017-12-12T02:07:27.038Z",
+          "updated": "2017-12-12T02:07:27.038Z"
+        },
+        {
+          "text": "can you tell me what my balance is?",
+          "created": "2017-12-15T05:29:22.305Z",
+          "updated": "2017-12-15T05:29:22.305Z"
+        },
+        {
+          "text": "what's my balance",
+          "created": "2017-12-15T05:29:35.952Z",
+          "updated": "2017-12-15T05:29:35.952Z"
+        }
+      ],
+      "description": "Get the Account Balance"
+    }
+  ],
+  "updated": "2017-12-15T06:32:14.485Z",
+  "entities": [
+    {
+      "entity": "account_type",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "bittrex",
+          "created": "2017-12-15T05:52:15.448Z",
+          "updated": "2017-12-15T05:52:15.448Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "gemini",
+          "created": "2017-12-15T05:52:38.109Z",
+          "updated": "2017-12-15T05:52:38.109Z",
+          "metadata": null,
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "coinbase",
+          "created": "2017-12-15T05:52:41.672Z",
+          "updated": "2017-12-15T06:30:12.990Z",
+          "metadata": null,
+          "synonyms": [
+            "coin base"
+          ]
+        }
+      ],
+      "created": "2017-12-15T05:52:06.647Z",
+      "updated": "2017-12-15T06:30:12.990Z",
+      "metadata": null,
+      "description": null
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "This is a crypto-bot conversation model",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Result",
+      "output": {
+        "text": {
+          "values": [
+            ""
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1513044891988",
+      "context": null,
+      "created": "2017-12-12T02:25:03.996Z",
+      "updated": "2017-12-12T02:26:28.888Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@balance",
+      "description": null,
+      "dialog_node": "node_2_1513045503847",
+      "digress_out": "allow_all",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Account Balance",
+      "output": {
+        "text": {
+          "values": [
+            "fetching your balance!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-15T05:51:36.457Z",
+      "updated": "2017-12-15T05:53:33.450Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#balance && @account_type",
+      "description": null,
+      "dialog_node": "node_2_1513317096031",
+      "previous_sibling": "node_1_1513044891988"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-12T02:07:50.381Z",
+      "updated": "2017-12-12T02:07:50.381Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Welcome",
+      "previous_sibling": "node_2_1513317096031"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-12T02:07:50.381Z",
+      "updated": "2017-12-12T02:07:50.381Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Balance",
+      "output": {
+        "text": {
+          "values": [
+            "Sure, let me fetch your balance! 💰",
+            "of course, I will fetch your balance 💸",
+            "definitely! will pull your balance just now.",
+            "Roger that!",
+            "Sit tight, pulling your account info! ;-)"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-12-12T02:14:52.244Z",
+      "updated": "2017-12-15T06:32:14.485Z",
+      "metadata": {},
+      "next_step": null,
+      "conditions": "#balance",
+      "digress_in": "does_not_return",
+      "description": null,
+      "dialog_node": "node_1_1513044891988",
+      "previous_sibling": null
+    }
+  ],
+  "workspace_id": "a31f6139-d206-40d3-a61b-dd6fcae9a43c",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
